@@ -37,7 +37,6 @@ export default {
     },
 
     mounted () {
-        console.log(this.nome)
     },
 
     methods: {
@@ -50,7 +49,7 @@ export default {
         
 
         postData(e){
-            console.warn(this)
+            console.warn(this.nome)
             e.preventDefault();
 
 
