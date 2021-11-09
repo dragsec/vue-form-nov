@@ -50,7 +50,7 @@ export default {
         
 
         postData(e){
-            console.warn(this.posts)
+            console.warn(this)
             e.preventDefault();
 
 
