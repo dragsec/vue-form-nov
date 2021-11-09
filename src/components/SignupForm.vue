@@ -1,5 +1,5 @@
 <template>
-    <form id="signup-form">
+    <form id="signup-form" @submit="postData" method="POST">
         <div class="row">
             <div class="col-12 form-group">
                 <label class="col-form-label col-form-label-lg">Nome <span class="text-danger">*</span></label>
@@ -15,7 +15,7 @@
                 <div v-if="!$v.email.required.email" class="invalid-feedback">Inserire email corretta.</div>
             </div>
             <div class="col-12 form-group text-center padtop2">
-                <button class="btn btn-vue btn-lg col-4 ">Registra</button>
+                <button type="submit" class="btn btn-vue btn-lg col-4 ">Registra</button>
             </div>
         </div>
     </form>
@@ -27,9 +27,9 @@ export default {
     name: 'SignupForm',
     data: function(){
         return {
-            nome: '',
-            cognome: '',
-            email: ''
+                nome: '',
+                cognome: '',
+                email: '' 
         }
     },
     validations: {
@@ -47,11 +47,13 @@ export default {
             return typeof validation != "undefined" ? validation.$error : false;
         },
 
-        submit: function() {
-            this.$v.$touch();
-            if (this.$v.$pendding || this.$v.$error) return;
         
-            alert('Data Submit')
+
+        postData(e){
+            console.warn(this.posts)
+            e.preventDefault();
+
+
         }
     }
 }
