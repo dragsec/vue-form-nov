@@ -22,7 +22,19 @@
 </template>
 
 <script>
+/* 
+import axios from 'axios'
+import * as Vue from 'vue'
+import App from './App.vue'
+import VueAxios from 'vue-axios'
+import { createApp } from 'vue'
+// import AppVue from '../App.vue'
+
+const app = Vue.createApp(...)
+app.use(VueAxios, axios) */
+
 import {required, email} from 'vuelidate/lib/validators'
+
 export default {
     name: 'SignupForm',
     data: function(){
@@ -48,9 +60,12 @@ export default {
 
         
 
-        postData(e){
-            console.warn(this.nome)
-            e.preventDefault();
+        postData(){
+            this.axios.post("http://esempio.it", this.posts)
+            .then((dati)=>{
+                console.log(dati)
+            }
+            )
 
 
         }
